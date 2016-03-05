@@ -359,6 +359,15 @@ public class UmmbookEditor extends JFrame implements ActionListener, TreeSelecti
 		}
 		if (game != null) {
 			String name = node.toString();
+			Scene scene = null;
+			for (Scene s : game.scenes) {
+				if (s.name.equals(sceneName)) {
+					scene = s;
+				}
+			}
+			if (scene != null) {
+				scene.text = text.getText();
+			}
 			if (name.length() > 6 && name.substring(0, 6).equals("Choice")) {
 				selectedChoice = Integer.parseInt(name.substring(7)) - 1;
 				String parent = node.getParent().toString();
@@ -385,6 +394,15 @@ public class UmmbookEditor extends JFrame implements ActionListener, TreeSelecti
 	public boolean save() {
 		if (game != null) {
 			int result;
+			Scene scene = null;
+			for (Scene s : game.scenes) {
+				if (s.name.equals(sceneName)) {
+					scene = s;
+				}
+			}
+			if (scene != null) {
+				scene.text = text.getText();
+			}
 			if (game.file == null) {
 				result = fileChooser.showSaveDialog(this);
 				if (result == JFileChooser.APPROVE_OPTION) {

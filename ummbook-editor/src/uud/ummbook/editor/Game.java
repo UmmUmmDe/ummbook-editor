@@ -77,6 +77,7 @@ public class Game {
 					}
 					txt = result;
 				}
+				txt = ((String) txt).substring(0, ((String) txt).length() - 4);
 				txt = ((String) txt).replaceAll("(\\\\n)", "\n");
 				Scene newScene = new Scene(s, (String) txt, cchoices);
 				this.scenes.add(newScene);
