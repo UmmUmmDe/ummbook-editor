@@ -163,6 +163,7 @@ public class UmmbookEditor extends JFrame implements ActionListener, TreeSelecti
 		scenes.setModel(treeModel);
 		text.setText("");
 		text.setEditable(false);
+		sceneName = "";
 	}
 
 	@Override
@@ -295,6 +296,7 @@ public class UmmbookEditor extends JFrame implements ActionListener, TreeSelecti
 					}
 				}
 				if (scene != null) {
+					scene.text = text.getText();
 					if (scene.choices.size() < 10) {
 						choiceScene = new JTextField("Scene");
 						choiceText = new JTextField("Text");
